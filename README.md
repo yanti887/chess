@@ -25,6 +25,18 @@ every game is over.
 `python3 -P -s main.py` with `MAKEFUN_ENV_URL` set to the env. It reads no
 other file and calls no model.
 
+## Verification
+
+- **Move generation (perft):** startpos 20 / 400 / 8,902 / 197,281 and
+  kiwipete 48 / 2,039 / 97,862 — all exact. En passant, all four promotions
+  and castling on both sides confirmed.
+- **Packed entrypoint:** the compressed `main.py` decompresses and runs
+  identically — perft, speed and determinism re-verified on the packed file.
+- **Speed:** 40,000 nodes in 1.8–2.3 s a move (17k–22k nps), inside the 10 s
+  move limit; a full 8-game trial fits the 1,800 s wall.
+- **Strength (self-play estimate):** around 1,150–1,250 Elo — near the
+  1,154 practice floor, below the sunfish baseline (~1,365).
+
 ---
 
 Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards
